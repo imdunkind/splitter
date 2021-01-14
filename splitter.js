@@ -145,8 +145,11 @@ var splitMe = {
 
         addEvent(window,'resize',function(){
             setTimeout(function(){
-                for(var index in splitMe.resizes)
-                    splitMe.update(splitMe.resizes[index]);
+                for(var index in splitMe.resizes) {
+                    if (!isNaN(index)) {
+                        splitMe.update(splitMe.resizes[index]);
+                    }
+                }
             },20);
         });
         //TODO: Touch support
